@@ -1,19 +1,27 @@
 ﻿@model IEnumerable<CollegePortal.Business.Dto.StudentCourseInfoDto>
+@using CollegePortal.Business.Dto
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
+<div>
+    Students: @Html.DropDownList("students", (List<SelectListItem>)ViewBag.Students)
+</div>
+<div>
+    Courses: @Html.DropDownList("courses", (List<SelectListItem>)ViewBag.Courses)
+</div>
+<div>
 
+    <div class="btn-group" role="group">
+        @Html.ActionLink("Add Student Course", "AddStudentCourse", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Add Course", "AddCourse", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Add Student", "AddStudent", null, new { @class = "btn btn-default" })
+    </div>
+</div>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.StudentId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CourseId)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.FirstName)
         </th>
@@ -34,12 +42,6 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseId)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.FirstName)
         </td>
