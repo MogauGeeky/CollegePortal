@@ -31,10 +31,10 @@ namespace CollegePortal.Controllers
             var data = collegePortalManager.GetStudentWithCourseInfo().ToList();
 
             if(studentId != 0)
-                data.Where(c => c.StudentId == studentId).ToList();
+                data = data.Where(c => c.StudentId == studentId).ToList();
 
             if(courseId != 0)
-                data.Where(c => c.CourseId == courseId).ToList();
+                data = data.Where(c => c.CourseId == courseId).ToList();
 
             return View(data);
         }
