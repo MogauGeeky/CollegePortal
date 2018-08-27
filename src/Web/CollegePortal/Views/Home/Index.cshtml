@@ -7,11 +7,10 @@
 
 <h2>Index</h2>
 <div>
-    Students: @Html.DropDownList("students", (List<SelectListItem>)ViewBag.Students)
+    Students: @Html.DropDownList("students", (List<SelectListItem>)ViewBag.Students) | Courses: @Html.DropDownList("courses", (List<SelectListItem>)ViewBag.Courses) | Display: <button id="display" class="btn bg-primary">Display</button>
 </div>
-<div>
-    Courses: @Html.DropDownList("courses", (List<SelectListItem>)ViewBag.Courses)
-</div>
+<br />
+<br />
 <div>
 
     <div class="btn-group" role="group">
@@ -20,6 +19,8 @@
         @Html.ActionLink("Add Student", "AddStudent", null, new { @class = "btn btn-default" })
     </div>
 </div>
+<br />
+<br />
 <table class="table">
     <tr>
         <th>
@@ -40,24 +41,53 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Surname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+        </tr>
+    }
 
 </table>
+
+@section scripts {
+<script>
+    $(document).ready(function () {
+        var studentDropDownList = $("[name='students']");
+        var coursesDropDownList = $("[name='courses']");
+        var displayBtn = $("#display");
+
+        displayBtn.on('click', function () {
+            var studentId = studentDropDownList.val();
+            var courseId = coursesDropDownList.val();
+            var redirectString = "/";
+            if (studentId) {
+                redirectString += '?studentId=' + studentId;
+            }
+
+            if (courseId && studentId) {
+                redirectString += '&courseId=' + courseId;
+            } else if(courseId) {
+                redirectString += '?courseId=' + studentId;
+            }
+
+            window.location = redirectString;
+        });
+    });
+</script>
+}
+

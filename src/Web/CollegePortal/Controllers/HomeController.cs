@@ -28,13 +28,13 @@ namespace CollegePortal.Controllers
                 Text = c.CourseName 
             }).ToList();
 
-            var data = collegePortalManager.GetStudentWithCourseInfo();
+            var data = collegePortalManager.GetStudentWithCourseInfo().ToList();
 
             if(studentId != 0)
-                data.Where(c => c.StudentId == studentId);
+                data.Where(c => c.StudentId == studentId).ToList();
 
             if(courseId != 0)
-                data.Where(c => c.CourseId == courseId);
+                data.Where(c => c.CourseId == courseId).ToList();
 
             return View(data);
         }
