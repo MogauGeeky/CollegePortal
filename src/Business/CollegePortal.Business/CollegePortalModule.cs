@@ -1,14 +1,10 @@
 ﻿using Autofac;
+using AutoMapper;
 using CollegePortal.Data.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CollegePortal.Business
 {
-    public class CollegePortalModule: Module
+    public class CollegePortalModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
@@ -21,6 +17,14 @@ namespace CollegePortal.Business
 
             builder.RegisterType<CollegePortalManager>()
                 .As<ICollegePortalManager>().InstancePerLifetimeScope();
+
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<MapperProfile>();
+            });
+
+            builder.Register(c => config.CreateMapper()).As<IMapper>()
+                .InstancePerLifetimeScope().PropertiesAutowired().PreserveExistingDefaults();
         }
     }
 }

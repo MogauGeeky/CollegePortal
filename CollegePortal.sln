@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegePortal.Data.Context"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegePortal.Business", "src\Business\CollegePortal.Business\CollegePortal.Business.csproj", "{74003054-5186-4318-9F4C-DBE9E4CFB8CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegePortal", "src\Web\CollegePortal\CollegePortal.csproj", "{56043618-75AF-41FC-B293-2332879AD247}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{74003054-5186-4318-9F4C-DBE9E4CFB8CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74003054-5186-4318-9F4C-DBE9E4CFB8CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74003054-5186-4318-9F4C-DBE9E4CFB8CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56043618-75AF-41FC-B293-2332879AD247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56043618-75AF-41FC-B293-2332879AD247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56043618-75AF-41FC-B293-2332879AD247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56043618-75AF-41FC-B293-2332879AD247}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{56CEA48F-D297-44E2-AC38-DE1B001FDA11} = {662C35A1-2F35-41C1-A8CB-E31A5049A3D6}
 		{9AA98D0E-4DA6-4D4D-B74C-A866420BFF33} = {662C35A1-2F35-41C1-A8CB-E31A5049A3D6}
 		{74003054-5186-4318-9F4C-DBE9E4CFB8CE} = {610F8406-84F6-445B-8668-374E14B79593}
+		{56043618-75AF-41FC-B293-2332879AD247} = {EE0E0F64-994F-46B3-9B5B-2D7E8FAD4D87}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {086408D0-4BA6-49CA-AC38-7DFBF2BB54E2}

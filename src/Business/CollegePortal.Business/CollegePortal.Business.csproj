@@ -56,6 +56,7 @@
     <Compile Include="Dto\Course.cs" />
     <Compile Include="Dto\Student.cs" />
     <Compile Include="Dto\StudentCourse.cs" />
+    <Compile Include="Dto\StudentCourseInfoDto.cs" />
     <Compile Include="ICollegePortalManager.cs" />
     <Compile Include="MapperProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

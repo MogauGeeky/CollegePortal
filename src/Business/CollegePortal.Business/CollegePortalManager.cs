@@ -103,6 +103,21 @@ namespace CollegePortal.Business
             return mapper.Map<IEnumerable<StudentDto>>(results);
         }
 
+        public IEnumerable<StudentCourseInfoDto> GetStudentWithCourseInfo()
+        {
+            var students = collegePortalDataFactory.StudentCourses.GetAll(c => c.Student, c => c.Course);
+
+            return students.Select(c => new StudentCourseInfoDto {
+                StudentId = c.Student.StudentId,
+                FirstName = c.Student.FirstName,
+                Surname = c.Student.Surname,
+                CourseName = c.Course.CourseName,
+                CourseId = c.Course.CourseId,
+                EndDate = c.Course.EndDate,
+                StartDate = c.Course.StartDate
+            });
+        }
+
         public void UpdateCourse(CourseDto courseDto)
         {
             var entity = mapper.Map<Course>(courseDto);

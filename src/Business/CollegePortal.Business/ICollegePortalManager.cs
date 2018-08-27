@@ -7,6 +7,8 @@ namespace CollegePortal.Business
     {
         IEnumerable<StudentDto> GetStudents();
 
+        IEnumerable<StudentCourseInfoDto> GetStudentWithCourseInfo();
+
         StudentDto AddStudent(StudentDto studentDto);
 
         void UpdateStudent(StudentDto studentDto);

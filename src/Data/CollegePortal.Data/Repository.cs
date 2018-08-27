@@ -1,5 +1,7 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace CollegePortal.Data
 {
@@ -44,9 +46,11 @@ namespace CollegePortal.Data
             context.SaveChanges();
         }
 
-        public IQueryable<T> GetAll()
+        public IQueryable<T> GetAll(params Expression<Func<T, object>>[] includeProperties)
         {
-            return context.Set<T>().AsNoTracking();
+            var query = context.Set<T>().AsQueryable();
+            return includeProperties.Aggregate(query,
+                (current, includeProperty) => current.Include(includeProperty)).AsNoTracking();
         }
 
         public void Update(T entity)
